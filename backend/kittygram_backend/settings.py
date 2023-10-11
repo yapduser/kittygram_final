@@ -10,7 +10,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+# DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -97,7 +98,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICC_ROOT = BASE_DIR / 'collected_static'
+STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -117,7 +118,3 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
-]
