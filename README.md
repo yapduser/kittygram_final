@@ -1,7 +1,7 @@
 # Kittygram
 
 [![Main Kittygram workflow](https://github.com/yapduser/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/yapduser/kittygram_final/actions/workflows/main.yml)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fikitty.sytes.net%2F&label=kittygram)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fikitty.sytes.net%2F&label=ikitty.sytes.net&link=https%3A%2F%2Fikitty.sytes.net%2F)](https://ikitty.sytes.net/)
 
 
 ## Описание
