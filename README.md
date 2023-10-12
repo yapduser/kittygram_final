@@ -1,3 +1,5 @@
+[![Main Kittygram workflow](https://github.com/yapduser/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/yapduser/kittygram_final/actions/workflows/main.yml)
+
 # Kittygram
 
 ## Технологии:
