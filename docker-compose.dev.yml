@@ -13,7 +13,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    build: ./backend/
+    build: ./backend
     env_file: .env
     volumes:
       - static:/backend_static
@@ -23,14 +23,14 @@ services:
     command: sh -c "sleep 5 && ./run-up.sh"
 
   frontend:
-    build: ./frontend/
+    build: ./frontend
     env_file: .env
     volumes:
       - static:/frontend_static
     command: cp -r /app/build/. /frontend_static
 
   gateway:
-    build: ./nginx/
+    build: ./nginx
     env_file: .env
     volumes:
       - static:/static
