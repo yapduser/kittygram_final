@@ -75,9 +75,9 @@ sudo docker build -t <username>/kittygram_gateway nginx/
 ```
 Загрузить образы на Docker Hub:
 ```shell
-sudo docker push <username>/kittygram_backend backend
-sudo docker push <username>/kittygram_frontend frontend
-sudo docker push <username>/kittygram_gateway nginx
+sudo docker push <username>/kittygram_backend
+sudo docker push <username>/kittygram_frontend
+sudo docker push <username>/kittygram_gateway
 ```
 Создать .env файл со следующим содержанием:
 ```shell
@@ -93,15 +93,10 @@ SECRET_KEY=<django_secrt_key>
 DEBUG=False
 ALLOWED_HOSTS=127.0.0.1;localhost;
 
-# Superuser data
-ADMIN_USERNAME=<usename>
-ADMIN_EMAIL=<example@example.com>
-ADMIN_PASSWORD=<password>
-
 # Docker images 
-BACKEND_IMAGE=<username>/kittygram_backend backend
-FRONTEND_IMAGE=<username>/kittygram_frontend frontend
-GATEWAY_IMAGE=<username>/kittygram_gateway nginx
+BACKEND_IMAGE=<username>/kittygram_backend
+FRONTEND_IMAGE=<username>/kittygram_frontend
+GATEWAY_IMAGE=<username>/kittygram_gateway
 ```
 
 💡 Дальнейшая инструкция предполагает, что удаленный сервер настроен на работу по `SSH`. 
@@ -133,7 +128,7 @@ sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/col
 ```
 Настроить шлюз для перенаправления запросов на `9000` порт, который слушает контейнер `kittygram_gateway`
 ```shell
-sudo nano /etc/nginx/sites-enabled/default
+sudo  vi /etc/nginx/sites-enabled/default
 ```
 Пример конфигурации Nginx:
 ```shell
