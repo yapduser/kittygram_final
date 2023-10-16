@@ -16,8 +16,8 @@ services:
     image: ${BACKEND_IMAGE}
     env_file: .env
     volumes:
-      - static:/backend_static
-      - media:/app/media
+      - static:/app/web/backend_static
+      - media:/app/web/mediafiles
     depends_on:
       - db
 
@@ -25,14 +25,17 @@ services:
     image: ${FRONTEND_IMAGE}
     env_file: .env
     volumes:
-      - static:/frontend_static
-    command: cp -r /app/build/. /frontend_static
+      - static:/app/web/frontend_static
+    command: cp -r /app/build/. /app/web/frontend_static
 
   gateway:
     image: ${GATEWAY_IMAGE}
     env_file: .env
     volumes:
-      - static:/static
-      - media:/app/media
+      - static:/app/web
+      - media:/app/web/mediafiles
     ports:
       - 9000:80
+    depends_on:
+      - backend
+    restart: always

@@ -7,34 +7,40 @@ volumes:
 
 services:
   db:
+    container_name: kitty-db
     image: postgres:13
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
 
   backend:
+    container_name: kitty-backend
     build: ./backend
     env_file: .env
     volumes:
-      - static:/backend_static
-      - media:/app/media
+      - static:/app/web/backend_static
+      - media:/app/web/mediafiles
     depends_on:
       - db
     command: sh -c "sleep 5 && ./run-up.sh"
 
   frontend:
+    container_name: kitty-frontend
     build: ./frontend
     env_file: .env
     volumes:
-      - static:/frontend_static
-    command: cp -r /app/build/. /frontend_static
+      - static:/app/web/frontend_static
+    command: cp -r /app/build/. /app/web/frontend_static
 
   gateway:
+    container_name: kitty-gateway
     build: ./nginx
     env_file: .env
     volumes:
-      - static:/static
-      - media:/app/media
+      - static:/app/web
+      - media:/app/web/mediafiles
     ports:
       - 9000:80
+    depends_on:
+      - backend
     restart: always
