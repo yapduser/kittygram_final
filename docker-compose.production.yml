@@ -7,12 +7,14 @@ volumes:
 
 services:
   db:
+    container_name: kitty-db
     image: postgres:13
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
 
   backend:
+    container_name: kitty-backend
     image: ${BACKEND_IMAGE}
     env_file: .env
     volumes:
@@ -22,6 +24,7 @@ services:
       - db
 
   frontend:
+    container_name: kitty-frontend
     image: ${FRONTEND_IMAGE}
     env_file: .env
     volumes:
@@ -29,6 +32,7 @@ services:
     command: cp -r /app/build/. /app/web/frontend_static
 
   gateway:
+    container_name: kitty-gateway
     image: ${GATEWAY_IMAGE}
     env_file: .env
     volumes:
