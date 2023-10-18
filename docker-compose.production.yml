@@ -36,8 +36,8 @@ services:
     image: ${GATEWAY_IMAGE}
     env_file: .env
     volumes:
-      - static:/app/web
-      - media:/app/web/mediafiles
+      - static:/web
+      - media:/web/mediafiles
     ports:
       - 9000:80
     restart: always
