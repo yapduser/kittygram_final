@@ -45,14 +45,14 @@ cd kittygram_final
 # DB
 POSTGRES_USER=<user>
 POSTGRES_PASSWORD=<password>
-POSTGRES_DB=<django>
+POSTGRES_DB=<db name>
 DB_HOST=db
 DB_PORT=5432
 
 # Django settings
-SECRET_KEY=<django_secrt_key>
+SECRET_KEY=<django secret key>
 DEBUG=False
-ALLOWED_HOSTS=127.0.0.1;localhost;
+ALLOWED_HOSTS=127.0.0.1;localhost;<example.com;xxx.xxx.xxx.xxx>
 
 # Superuser data
 ADMIN_USERNAME=<usename>
@@ -84,14 +84,14 @@ sudo docker push <username>/kittygram_gateway
 # DB
 POSTGRES_USER=<user>
 POSTGRES_PASSWORD=<password>
-POSTGRES_DB=<django>
+POSTGRES_DB=<db name>
 DB_HOST=db
 DB_PORT=5432
 
 # Django settings
-SECRET_KEY=<django_secrt_key>
+SECRET_KEY=<django secrt key>
 DEBUG=False
-ALLOWED_HOSTS=127.0.0.1;localhost;
+ALLOWED_HOSTS=127.0.0.1;localhost;<example.com;xxx.xxx.xxx.xxx>
 
 # Docker images 
 BACKEND_IMAGE=<username>/kittygram_backend
@@ -163,11 +163,11 @@ server {
 изменить `.github/workflows/main.yml` под свои параметры и аккаунт.
 
 Actions secrets:
-- secrets.DOCKER_USERNAME
-- secrets.DOCKER_PASSWORD
-- secrets.HOST
-- secrets.USER
-- secrets.SSH_KEY
-- secrets.SSH_PASSPHRASE
-- secrets.TELEGRAM_TO
-- secrets.TELEGRAM_TOKEN
+- `secrets.DOCKER_USERNAME`
+- `secrets.DOCKER_PASSWORD`
+- `secrets.HOST`
+- `secrets.USER`
+- `secrets.SSH_KEY`
+- `secrets.SSH_PASSPHRASE`
+- `secrets.TELEGRAM_TO`
+- `secrets.TELEGRAM_TOKEN`
