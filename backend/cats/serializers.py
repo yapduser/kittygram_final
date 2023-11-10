@@ -44,10 +44,10 @@ class CatSerializer(serializers.ModelSerializer):
     color = Hex2NameColor()
     age = serializers.SerializerMethodField()
     image = Base64ImageField(required=False, allow_null=True)
-    image_url = serializers.SerializerMethodField(
-        'get_image_url',
-        read_only=True,
-    )
+    # image_url = serializers.SerializerMethodField(
+    #     'get_image_url',
+    #     read_only=True,
+    # )
 
     class Meta:
         model = Cat
@@ -57,10 +57,10 @@ class CatSerializer(serializers.ModelSerializer):
         )
         read_only_fields = ('owner',)
 
-    def get_image_url(self, obj):
-        if obj.image:
-            return obj.image.url
-        return None
+    # def get_image_url(self, obj):
+    #     if obj.image:
+    #         return obj.image.url
+    #     return None
 
     def get_age(self, obj):
         return dt.datetime.now().year - obj.birth_year
